@@ -18,8 +18,6 @@
  */
 package org.apache.sling.distribution.serialization.impl.kryo;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -27,7 +25,6 @@ import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
-
 import com.esotericsoftware.kryo.Kryo;
 import com.esotericsoftware.kryo.Serializer;
 import com.esotericsoftware.kryo.io.Input;
@@ -43,6 +40,8 @@ import org.apache.sling.distribution.common.DistributionException;
 import org.apache.sling.distribution.serialization.DistributionContentSerializer;
 import org.apache.sling.distribution.serialization.DistributionExportFilter;
 import org.apache.sling.distribution.serialization.DistributionExportOptions;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.objenesis.strategy.StdInstantiatorStrategy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -112,7 +111,7 @@ public class KryoContentSerializer implements DistributionContentSerializer {
         return false;
     }
 
-    private void persistResource(@Nonnull ResourceResolver resourceResolver, Resource resource) throws PersistenceException {
+    private void persistResource(@NotNull ResourceResolver resourceResolver, Resource resource) throws PersistenceException {
         String path = resource.getPath().trim();
         String name = path.substring(path.lastIndexOf('/') + 1);
         String substring = path.substring(0, path.lastIndexOf('/'));
