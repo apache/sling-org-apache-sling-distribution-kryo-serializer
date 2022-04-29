@@ -1,0 +1,6 @@
+github:
+  description: "Apache Sling Distribution Kryo Serializer (deprecated)"
+  homepage: "https://sling.apache.org/"
+  labels:
+    - sling
+    - deprecated
